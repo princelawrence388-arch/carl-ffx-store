@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090611">
+<title>𝙲𝙰𝚁𝙻 𝙵𝙵𝚇 𝚂𝚃𝙾𝚁𝙴</title>
+
+<style>
+:root {
+  --bg: #090611;
+  --panel: #171022;
+  --purple: #9b5cff;
+  --pink: #ec45ce;
+  --white: #ffffff;
+  --muted: #b8afc9;
+  --green: #30e69b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: "Courier New", monospace;
+  line-height: 1.7;
+  letter-spacing: .4px;
+}
+
+header {
+  background: #100b1b;
+  border-bottom: 1px solid #392052;
+  padding: 16px 4%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--purple);
+}
+
+nav button {
+  background: transparent;
+  color: white;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+nav button:hover {
+  color: var(--pink);
+}
+
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.page {
+  display: none;
+  padding: 35px 0 60px;
+  min-height: 75vh;
+}
+
+.page.active {
+  display: block;
+}
+
+.hero {
+  padding: 55px 20px;
+  text-align: center;
+  background: radial-gradient(ellipse at top, #482174, #170e28 50%, #090611);
+  border: 1px solid #392052;
+  border-radius: 22px;
+  margin-bottom: 28px;
+}
+
+.badge, .discount {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.badge {
+  background: #2b1944;
+  color: #d8b9ff;
+  margin-bottom: 18px;
+}
+
+.discount {
+  background: #173d32;
+  color: var(--green);
+}
+
+h1 {
+  font-size: clamp(27px, 6vw, 48px);
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+h1 span, .logo {
+  color: var(--purple);
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(100deg, var(--purple), var(--pink));
+  color: white;
+  padding: 12px 17px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 14px;
+}
+
+.btn.secondary {
+  background: #251a35;
+  border: 1px solid #65438a;
+}
+
+.btn:hover {
+  opacity: .85;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 17px;
+  margin-top: 20px;
+}
+
+.card, .form-card {
+  background: var(--panel);
+  border: 1px solid #302044;
+  border-radius: 15px;
+  padding: 22px;
+}
+
+.icon {
+  font-size: 32px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #8c829d;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.price {
+  color: var(--green);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.note, .status {
+  background: #21182e;
+  border-left: 3px solid var(--purple);
+  border-radius: 8px;
+  padding: 13px;
+  margin: 15px 0;
+  color: #e0d6ee;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 13px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  background: #0e0a17;
+  color: white;
+  border: 1px solid #45315b;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.form-card {
+  max-width: 550px;
+  margin: 20px auto;
+}
+
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: #222;
+  padding: 14px;
+  margin-top: 18px;
+  border-radius: 5px;
+}
+
+.captcha input {
+  width: 22px;
+  height: 22px;
+}
+
+.captcha label {
+  color: #222;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 12px;
+  border-top: 1px solid #302044;
+}
+
+footer p {
+  font-size: 11px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media(max-width:600px) {
+  nav {
+    justify-content: center;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav button {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  .hero {
+    padding: 38px 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <div class="logo">𝙲𝙰𝚁𝙻 𝙵𝙵𝚇 𝚂𝚃𝙾𝚁𝙴</div>
+  <div>
+    <button onclick="showPage('home')">𝙷𝚘𝚖𝚎</button>
+    <button onclick="showPage('diamonds')">𝙳𝚒𝚊𝚖𝚘𝚗𝚍𝚜</button>
+    <button onclick="showPage('booyah')">𝙱𝚘𝚘𝚢𝚊𝚑</button>
+    <button onclick="showPage('support')">𝚂𝚞𝚙𝚙𝚘𝚛𝚝</button>
+  </div>
+</nav>
+</header>
+
+<main class="container">
+
+<section id="home" class="page active">
+  <div class="hero">
+    <span class="badge">🎮 𝙼𝙴𝙽𝙰 𝚂𝙴𝚁𝚅𝙴𝚁 𝙾𝙽𝙻𝚈</span>
+    <h1>𝙻𝙴𝚅𝙴𝙻 𝚄𝙿 𝚈𝙾𝚄𝚁<br><span>𝙶𝙰𝙼𝙴</span></h1>
+    <p>𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝙲𝙰𝚁𝙻 𝙵𝙵𝚇 𝚂𝚃𝙾𝚁𝙴. 𝙶𝚎𝚝 𝚢𝚘𝚞𝚛 𝚍𝚒𝚊𝚖𝚘𝚗𝚍𝚜 𝚊𝚗𝚍 𝙱𝚘𝚘𝚢𝚊𝚑 𝙿𝚊𝚜𝚜 𝚠𝚒𝚝𝚑 𝟷𝟶% 𝙾𝙵𝙵.</p>
+    <button class="btn" onclick="showPage('diamonds')">💎 𝚂𝚑𝚘𝚙 𝙳𝚒𝚊𝚖𝚘𝚗𝚍𝚜</button>
+    <button class="btn secondary" onclick="showPage('booyah')">🎟️ 𝙱𝚘𝚘𝚢𝚊𝚑 𝙿𝚊𝚜𝚜</button>
+  </div>
+
+  <h2>🔥 𝚆𝚑𝚢 𝙲𝚑𝚘𝚘𝚜𝚎 𝚄𝚜?</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">💎</div>
+      <h3>𝙳𝚒𝚊𝚖𝚘𝚗𝚍𝚜</h3>
+      <p>𝙴𝚡𝚙𝚕𝚘𝚛𝚎 𝙼𝙴𝙽𝙰 𝚙𝚊𝚌𝚔𝚊𝚐𝚎𝚜.</p>
+      <button class="btn" onclick="showPage('diamonds')">𝚅𝚒𝚎𝚠 𝙿𝚊𝚌𝚔𝚊𝚐𝚎𝚜</button>
+    </div>
+    <div class="card">
+      <div class="icon">🎟️</div>
+      <h3>𝙱𝚘𝚘𝚢𝚊𝚑 𝙿𝚊𝚜𝚜</h3>
+      <p>𝙲𝚑𝚎𝚌𝚔 𝚘𝚞𝚛 𝚙𝚊𝚜𝚜 𝚘𝚏𝚏𝚎𝚛.</p>
+      <button class="btn" onclick="showPage('booyah')">𝚅𝚒𝚎𝚠 𝙿𝚊𝚜𝚜</button>
+    </div>
+  </div>
+
+  <div class="note">⚠️ 𝙲𝚘
